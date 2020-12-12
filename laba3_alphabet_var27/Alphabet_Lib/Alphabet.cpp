@@ -106,9 +106,14 @@ namespace prog3 {
 	{
 		const int slov = strok.size();
 		int kolb = get_number_of_letters();
-		std::cout << strok;
 		char t[1] = { 'g' };
 		char str[256] = {};
+		for (int i = 0; i != slov; i++)
+		{
+			if (symbol_check(strok[i]) < 1)
+				//return "OSHIBLA";
+				throw std::invalid_argument("There are no such symbols in the alphabet");
+		}
 		for (int i = 0; i != slov; i++)
 		{
 			int j = 0;
