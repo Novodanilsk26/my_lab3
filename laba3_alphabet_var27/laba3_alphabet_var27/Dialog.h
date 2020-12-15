@@ -1,8 +1,21 @@
 #pragma once
 #include <iostream>
-#include "../Alphabet_Lib/Alphabet.h"
 
-namespace prog3 {
-	
+namespace prog33
+{	
+	void getInt(int& a)
+	{
+		setlocale(0, "");
+		while (1)
+		{
+			if (std::cin >> a)
+				break;
 
+			std::cin.clear();
+
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+			std::cout << "Поробуйте снова!\n»";
+		}
+	}
 }
