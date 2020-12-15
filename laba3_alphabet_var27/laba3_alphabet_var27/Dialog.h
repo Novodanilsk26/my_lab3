@@ -3,6 +3,8 @@
 
 namespace prog33
 {	
+
+
 	void getInt(int& a)
 	{
 		setlocale(0, "");
