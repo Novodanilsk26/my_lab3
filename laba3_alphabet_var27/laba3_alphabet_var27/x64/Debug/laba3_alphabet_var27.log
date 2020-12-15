@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (laba3_alphabet_var27.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+Alphabet_Lib.lib(Alphabet.obj) : error LNK2005: "public: __cdecl prog3::Alphabet::Alphabet(void)" (??0Alphabet@prog3@@QEAA@XZ) уже определен в main1.obj
+main1.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl prog3::Alphabet::Alphabet(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0Alphabet@prog3@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) в функции main
+main1.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: class prog3::Alphabet & __cdecl prog3::Alphabet::operator=(class prog3::Alphabet const &)" (??4Alphabet@prog3@@QEAAAEAV01@AEBV01@@Z) в функции main
+C:\Users\MI\Documents\GitHub\my_lab3\laba3_alphabet_var27\x64\Debug\Dialog.exe : fatal error LNK1120: неразрешенных внешних элементов: 2
