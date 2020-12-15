@@ -1,1 +1,7 @@
-﻿  Alphabet_Lib.vcxproj -> C:\Users\MI\Documents\GitHub\my_lab3\laba3_alphabet_var27\x64\Debug\Alphabet_Lib.lib
+﻿  Alphabet.cpp
+C:\Users\MI\Documents\GitHub\my_lab3\laba3_alphabet_var27\Alphabet_Lib\Alphabet.cpp(26,35): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\MI\Documents\GitHub\my_lab3\laba3_alphabet_var27\Alphabet_Lib\Alphabet.cpp(99,32): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\MI\Documents\GitHub\my_lab3\laba3_alphabet_var27\Alphabet_Lib\Alphabet.cpp(99,32): warning C4267: инициализация: преобразование из "size_t" в "const int"; возможна потеря данных
+C:\Users\MI\Documents\GitHub\my_lab3\laba3_alphabet_var27\Alphabet_Lib\Alphabet.cpp(128,32): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\MI\Documents\GitHub\my_lab3\laba3_alphabet_var27\Alphabet_Lib\Alphabet.cpp(128,32): warning C4267: инициализация: преобразование из "size_t" в "const int"; возможна потеря данных
+  Alphabet_Lib.vcxproj -> C:\Users\MI\Documents\GitHub\my_lab3\laba3_alphabet_var27\x64\Debug\Alphabet_Lib.lib

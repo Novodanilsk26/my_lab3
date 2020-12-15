@@ -1,5 +1,5 @@
 #include "dialog.h"
-#include "/Users/MI/source/repos/lab3_dynamic_alphabet/lab3_dynamic_alphabet/Alphabet_dynamic.h"
+#include "/Users/MI//Documents/GitHub/my_lab3/laba3_alphabet_var27/Alphabet_Lib/Alphabet.h"
 
 int main()
 {

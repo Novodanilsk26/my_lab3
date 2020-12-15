@@ -6,35 +6,28 @@
 
 namespace prog3 {
 
-	Alphabet::Alphabet()
+	Alphabet::Alphabet(int size_alph)
 	{
-		number_of_letters = sizeof(help) / sizeof(help[0]);
-		for (int i = 0; i < number_of_letters; i++)
+		if (size_alph < 0)
+			throw std::exception("Again");
+		if (size_alph > 74)
+			throw std::exception("Again");
+		number_of_letters = size_alph;
+		for (int i = 0; i < size_alph; i++)
 		{
 			alphabet[i] = help[i];
 		}
 	}
 
-	Alphabet::Alphabet(int size_alph)
+	Alphabet::Alphabet( const std::string strok)
 	{
-		number_of_letters = size_alph;
-		if (size_alph < 74) {
-			for (int i = 0; i < size_alph; i++)
-			{
-				alphabet[i] = help[i];
-			}
-		}
-		else
-			std::cout << "warning\n";
-	}
-
-	Alphabet::Alphabet(std::string strok)
-	{
-		number_of_letters = strok.length();
+		if (strok.size() > 74)
+			throw std::exception("Again");
+		number_of_letters = strok.size();
 		for (int i = 0; i < number_of_letters; i++) {
 			alphabet[i] = strok[i];
 		}
-		//normal_alphabet();
+		normal_alphabet();
 	}
 	//готово
 	char Alphabet::get_aphabet(int f) const
@@ -77,26 +70,25 @@ namespace prog3 {
 	//готово
 	std::istream& operator>> (std::istream& in, Alphabet& konstr)
 	{
-
-		for (int i = 0; i < konstr.number_of_letters; i++)
-		{
-			in >> konstr.alphabet[i];
-
-		}
-		konstr.normal_alphabet();
+		std::string str;
+		in >> str;
+		konstr = Alphabet(str);
 		return in;
 	}
 	//готово
 	Alphabet operator+ (const Alphabet& konstr, const Alphabet& konstr1)
 	{
-		Alphabet res(konstr);
-		int temp1 = konstr1.get_number_of_letters();
-		int temp = konstr.get_number_of_letters();
-		int i = 0;
-		while (res.get_number_of_letters() != (temp + temp1))
+		//Alphabet res(konstr);
+		Alphabet res;
+		int temp = konstr.get_number_of_letters() + konstr1.get_number_of_letters();
+		res.set_number_of_letters(temp);
+		for (int i = 0; i < konstr.number_of_letters; i++)
 		{
-			res.set_alphabet(res.get_number_of_letters(), konstr1.get_aphabet(i));
-			i++;
+			res.alphabet[i] = konstr.alphabet[i];
+		}
+		for (int i = 0; i < konstr1.number_of_letters; i++)
+		{
+			res.alphabet[konstr.number_of_letters + i] = konstr1.alphabet[i];
 		}
 		res.normal_alphabet();
 		return res;
@@ -110,21 +102,22 @@ namespace prog3 {
 		char str[256] = {};
 		for (int i = 0; i != slov; i++)
 		{
-			if (symbol_check(strok[i]) < 1)
-				//return "OSHIBLA";
+			if (symbol_check(strok[i]) != 1)
+			{
 				throw std::invalid_argument("There are no such symbols in the alphabet");
-		}
-		for (int i = 0; i != slov; i++)
-		{
-			int j = 0;
-			while (j != kolb) {
-				if (strok[i] == alphabet[j]) {
-					t[0] = alphabet[(i + n) % kolb];
-					j = kolb - 1;
-				}
-				j++;
 			}
-			str[i] = t[0];
+			else
+			{
+				int j = 0;
+				while (j != kolb) {
+					if (strok[i] == alphabet[j]) {
+						t[0] = alphabet[(i + n) % kolb];
+						j = kolb - 1;
+					}
+					j++;
+				}
+				str[i] = t[0];
+			}
 		}
 		std::string strok1 = std::string(str);
 		return strok1;
@@ -134,12 +127,15 @@ namespace prog3 {
 	{
 		const int slov = strok.size();
 		int kolb = get_number_of_letters();
-		std::cout << strok;
 		char t[1] = { 'g' };
 		char str[256] = {};
 		int decode = 0;
 		for (int i = 0; i != slov; i++)
 		{
+			if (symbol_check(strok[i]) != 1)
+			{
+				throw std::invalid_argument("There are no such symbols in the alphabet");
+			}
 			int j = 0;
 			while (j != kolb) {
 				if (strok[i] == alphabet[j]) {

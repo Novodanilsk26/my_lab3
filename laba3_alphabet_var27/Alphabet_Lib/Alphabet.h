@@ -18,9 +18,9 @@ namespace prog3 {
 		 void  normal_alphabet();
 	public:
 
-		Alphabet();// пустой конструктор
+		Alphabet() :number_of_letters(0), alphabet() {};// пустой конструктор
 		Alphabet(int size_alphet);// конструктор с алфавитом до какого то числа
-		Alphabet(std::string);// конструктор для строки// в будущем сам будет считать количество символов
+		Alphabet( const std::string);// конструктор для строки// в будущем сам будет считать количество символов
 
 		void set_number_of_letters(int);// сеттер для букв
 		void set_alphabet(int index, char ch);//замена символа в алфавите
